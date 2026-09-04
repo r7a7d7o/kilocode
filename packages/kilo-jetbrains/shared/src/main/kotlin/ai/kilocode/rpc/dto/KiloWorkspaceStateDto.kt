@@ -7,6 +7,8 @@ enum class KiloWorkspaceStatusDto {
     PENDING,
     LOADING,
     READY,
+    UNSUPPORTED,
+    MISSING,
     ERROR,
 }
 
@@ -27,5 +29,12 @@ data class KiloWorkspaceStateDto(
     val commands: List<CommandDto> = emptyList(),
     val skills: List<SkillDto> = emptyList(),
     val error: String? = null,
+    val errors: List<LoadErrorDto> = emptyList(),
+)
+
+@Serializable
+data class ModelsWorkspaceDto(
+    val providers: ProvidersDto? = null,
+    val agents: AgentsDto? = null,
     val errors: List<LoadErrorDto> = emptyList(),
 )
